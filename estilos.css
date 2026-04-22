@@ -1,0 +1,408 @@
+/* --- BASE Y BODY --- */
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+    background-color: #393E41;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- HEADER COMPLETO --- */
+.header {
+    width: 100%;
+    padding: 30px 0;
+    background-color: transparent; /* O el color de fondo que prefieras */
+}
+
+.header-content {
+    max-width: 95%; 
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    position: relative; /* Clave para que el contenedor central funcione */
+    min-height: 300px; /* Para que coincida con la altura de tu logo */
+}
+
+.logo-link {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.logo {
+    width: 300px; 
+    height: 300px;
+    z-index: 2;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+/* Contenedor central para Título y Subtítulo */
+.titulo-container {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: auto;
+}
+
+.titulo {
+    font-size: 58px; 
+    font-weight: 800;
+    letter-spacing: 12px;
+    color: #e5c100;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.subtitulo {
+    font-size: 18px; 
+    color: #ffffff;
+    letter-spacing: 6px; 
+    text-transform: uppercase;
+    font-weight: 300;
+    margin-top: 10px;
+    opacity: 0.9;
+    margin-bottom: 0;
+}
+
+/* --- MAIN Y GRID --- */
+main {
+    flex: 1;
+    width: 100%;
+}
+
+.contenedor-productos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 60px;
+    width: 90%;
+    max-width: 1300px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+/* --- TARJETAS E INDEX --- */
+.producto-contenedor {
+    position: relative;
+}
+
+.producto-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.producto {
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+
+    border: 10px solid #000000;
+}
+.producto:hover {
+    transform: translateY(-10px);
+}
+
+/* --- SLIDER CON FLECHAS CENTRADAS --- */
+.slider {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    /* Cambios aquí: */
+    background: transparent; /* Quita el recuadro blanco */
+    color: #000000;         /* El dorado de "Conexión Natural" */
+    border: none;
+    font-size: 35px;        /* Un poco más grande ya que no tienen fondo */
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease; /* Suaviza todos los cambios */
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.prev:hover, .next:hover {
+    background: rgba(229, 193, 0, 0.9); /* Color dorado al pasar el mouse */
+    color: white;
+}
+
+.info-producto {
+    padding: 25px;
+}
+
+.nombre {
+    font-size: 35px;
+    color: #000000;
+    margin-bottom: 10px;
+    font-weight: bold; /* Esto la hace gorda estándar */
+}
+
+.nombre-2 {
+    font-size: 30px;
+    color: #363636;
+    margin-bottom: 10px;
+    font-weight: bold; /* Esto la hace gorda estándar */
+}
+
+.precio {
+    font-size: 38px;
+    font-weight: bold;
+    color: #000000;
+    margin: 0;
+}
+
+/* --- PAGINA DE DETALLE --- */
+.principal-detalle {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    display: flex;
+    gap: 50px;
+    color: white;
+}
+
+.galeria {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.foto-grande {
+    width: 600px;      
+    height: 600px;
+    aspect-ratio: 1/1;
+    background: white;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+}
+
+.foto-grande img {
+    width: 100%;       
+    height: 100%;      
+    object-fit: cover; 
+}
+
+.miniaturas {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.miniaturas img {
+    width: 200px;
+    height: 200px;
+    background: white;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 3px solid transparent;
+    object-fit: contain;
+}
+
+.miniaturas img:hover {
+    border-color: #e5c100;
+}
+
+.info-compra-detalle {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.nombre-detalle {
+    font-size: 48px;
+    font-weight: 800;
+    color: #e5c100;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.precio-detalle-grande {
+    font-size: 54px;
+    color: #ffffff;
+    font-weight: bold;
+    margin: 0;
+}
+
+.descripcion-texto {
+    font-size: 25px;
+    line-height: 1.6;
+    color: #f0f0f0;
+}
+
+.metodos-pago {
+    background: #1a1a1a;
+    font-size: 25px;
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid #333;
+}
+
+.metodos-pago h3 {
+    font-size: 35px;
+    color: #e5c100;
+    margin-top: 0;
+}
+
+/* --- FOOTER --- */
+.footer {
+    background: #d3d3d3;
+    padding: 30px 5%;
+    margin-top: 60px;
+    display: flex; 
+    align-items: center; 
+    justify-content: flex-start; 
+    gap: 40px;
+}
+
+.footer-logo {
+    width: 150px; /* Tamaño reducido para mejor balance */
+    height: 150px;
+    flex-shrink: 0;
+}
+
+.footer-logo img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.footer-texto {
+    font-size: 24px; /* Ajustado para que no sea excesivo */
+    color: #000000;
+    font-weight: bold;
+    line-height: 1.3;
+}
+
+/* --- RESPONSIVE FINAL OPTIMIZADO --- */
+@media (max-width: 800px) {
+    /* 1. HEADER: Logo arriba, texto abajo y centrado */
+    .header-content {
+        flex-direction: column;
+        min-height: auto;
+        padding: 20px 10px;
+    }
+
+    .logo {
+        width: 180px; /* Tamaño más cómodo para celu */
+        height: 180px;
+        margin-bottom: 15px;
+    }
+
+    .titulo-container {
+        position: static; /* Quitamos el absolute para que no flote */
+        transform: none;
+        left: 0;
+        width: 100%;
+    }
+
+    .titulo {
+        font-size: 32px; /* Tamaño legible en pantallas chicas */
+        letter-spacing: 4px;
+        white-space: normal; /* Permite que el título baje si es muy largo */
+    }
+
+    .subtitulo {
+        font-size: 14px;
+        letter-spacing: 2px;
+    }
+
+    /* 2. GRILLA: Una sola columna de productos */
+    .contenedor-productos {
+        grid-template-columns: 1fr;
+        width: 95%;
+        gap: 30px; /* Menos espacio entre tarjetas en el celu */
+    }
+
+    /* 3. DETALLE DE PRODUCTO: Todo uno debajo del otro */
+    .principal-detalle {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        padding: 10px;
+    }
+
+    .foto-grande {
+        width: 100%; /* Que use todo el ancho disponible */
+        height: auto;
+        aspect-ratio: 1/1;
+    }
+
+    .miniaturas img {
+        width: 80px; /* Miniaturas más chicas para que entren en fila */
+        height: 80px;
+    }
+
+    .nombre-detalle {
+        font-size: 32px;
+    }
+
+    .precio-detalle-grande {
+        font-size: 40px;
+    }
+
+    .descripcion-texto, .metodos-pago {
+        font-size: 18px; /* Texto más cómodo para leer en mano */
+        text-align: left; /* Volvemos al texto a la izquierda para mejor lectura */
+    }
+
+    /* 4. FOOTER: Logo y texto centrados */
+    .footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 10%;
+    }
+
+    .footer-texto {
+        font-size: 18px;
+    }
+}

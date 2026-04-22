@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle - Conexión Natural</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="header-content">
+        <div class="logo">
+            <img src="./imagenes/Sahumerios.jpg" alt="Logo">
+        </div>
+        
+        <div class="titulo-container">
+            <h1 class="titulo">CONEXIÓN NATURAL</h1>
+            <p class="subtitulo">Aromas que conectan con tu esencia</p>
+        </div>
+    </div>
+</header>
+
+<main class="principal-detalle">
+    <div class="galeria">
+        <div class="foto-grande">
+            <img id="imgPrincipal" src="">
+        </div>
+        <div id="miniaturas" class="miniaturas"></div>
+    </div>
+
+    <div class="info-compra-detalle">
+        <h1 id="detNombre" class="nombre-detalle"></h1>
+        <p id="detPrecio" class="precio-detalle-grande"></p>
+        <p id="detDesc" class="descripcion-texto"></p>
+
+        <div class="metodos-pago">
+            <h3>Medios de pago</h3>
+            <p>💳 Mercado Pago (Transferencia)</p>
+            <p>💵 Efectivo</p>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="footer-logo"><img src="./imagenes/Sahumerios.jpg"></div>
+    <div class="footer-texto">
+        ✨ Aromas que conectan ✨ <br>
+        <strong>Instagram:</strong> @conexion_natural_maru
+    </div>
+</footer>
+
+<script src="datos.js"></script>
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const id = parseInt(params.get('id'));
+    const prod = productos.find(p => p.id === id);
+
+    if (prod) {
+        document.getElementById('detNombre').innerText = prod.nombre;
+        document.getElementById('detPrecio').innerText = `$${prod.precio}`;
+        document.getElementById('detDesc').innerText = prod.descripcion;
+        const mainImg = document.getElementById('imgPrincipal');
+        mainImg.src = prod.fotos[0];
+
+        prod.fotos.forEach(f => {
+            const m = document.createElement('img');
+            m.src = f;
+            m.onclick = () => mainImg.src = f;
+            document.getElementById('miniaturas').appendChild(m);
+        });
+    }
+</script>
+</body>
+</html>

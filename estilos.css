@@ -322,87 +322,98 @@ main {
     font-weight: bold;
     line-height: 1.3;
 }
-
-/* --- RESPONSIVE FINAL OPTIMIZADO --- */
+/* --- RESPONSIVE FINAL COMPLETO (Sahumerios) --- */
 @media (max-width: 800px) {
-    /* 1. HEADER: Logo arriba, texto abajo y centrado */
+
+    /* 1. AJUSTES DE PANTALLA GENERAL */
+    html, body {
+        overflow-x: hidden; /* Evita que la página se mueva hacia los costados */
+        width: 100%;
+    }
+
+    /* 2. HEADER: Logo arriba y título abajo */
     .header-content {
-        flex-direction: column;
-        min-height: auto;
+        flex-direction: column !important;
+        min-height: auto !important;
         padding: 20px 10px;
+        text-align: center;
     }
 
     .logo {
-        width: 180px; /* Tamaño más cómodo para celu */
-        height: 180px;
+        width: 150px !important;
+        height: auto !important;
         margin-bottom: 15px;
     }
 
     .titulo-container {
-        position: static; /* Quitamos el absolute para que no flote */
-        transform: none;
-        left: 0;
-        width: 100%;
+        position: static !important; /* Libera el título de posiciones fijas de PC */
+        transform: none !important;
+        width: 100% !important;
     }
 
     .titulo {
-        font-size: 32px; /* Tamaño legible en pantallas chicas */
-        letter-spacing: 4px;
-        white-space: normal; /* Permite que el título baje si es muy largo */
-    }
-
-    .subtitulo {
-        font-size: 14px;
+        font-size: 28px !important;
         letter-spacing: 2px;
+        white-space: normal;
     }
 
-    /* 2. GRILLA: Una sola columna de productos */
+    /* 3. GRILLA: Una sola columna de productos */
     .contenedor-productos {
-        grid-template-columns: 1fr;
-        width: 95%;
-        gap: 30px; /* Menos espacio entre tarjetas en el celu */
+        grid-template-columns: 1fr !important;
+        width: 90% !important;
+        margin: 0 auto !important;
+        gap: 25px;
     }
 
-    /* 3. DETALLE DE PRODUCTO: Todo uno debajo del otro */
+    /* TARJETA CLICKABLE: Estilo para el <a> que envuelve la tarjeta */
+    .tarjeta-link {
+        text-decoration: none !important;
+        color: inherit !important;
+        display: block;
+        width: 100%;
+    }
+
+    /* 4. DETALLE DE PRODUCTO (detalle.html) */
     .principal-detalle {
-        flex-direction: column;
+        flex-direction: column !important;
         align-items: center;
-        gap: 30px;
-        padding: 10px;
+        padding: 15px !important;
     }
 
     .foto-grande {
-        width: 100%; /* Que use todo el ancho disponible */
-        height: auto;
-        aspect-ratio: 1/1;
+        width: 100% !important;
+        max-width: 450px;
+        height: auto !important;
     }
 
     .miniaturas img {
-        width: 80px; /* Miniaturas más chicas para que entren en fila */
-        height: 80px;
+        width: 70px !important;
+        height: 70px !important;
     }
 
-    .nombre-detalle {
-        font-size: 32px;
-    }
-
-    .precio-detalle-grande {
-        font-size: 40px;
-    }
-
-    .descripcion-texto, .metodos-pago {
-        font-size: 18px; /* Texto más cómodo para leer en mano */
-        text-align: left; /* Volvemos al texto a la izquierda para mejor lectura */
-    }
-
-    /* 4. FOOTER: Logo y texto centrados */
+    /* 5. FOOTER: Arreglado, Logo y Texto centrados */
     .footer {
-        flex-direction: column;
-        text-align: center;
-        padding: 30px 10%;
+        display: flex !important;
+        flex-direction: column !important; /* Pone el logo sobre el texto */
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        padding: 30px 15px !important;
+        gap: 20px;
+    }
+
+    .logo-footer {
+        width: 110px !important;
+        height: auto !important;
+        cursor: pointer;
+        display: block;
+        margin: 0 auto;
     }
 
     .footer-texto {
-        font-size: 18px;
+        font-size: 16px !important;
+        margin: 0 auto;
+        max-width: 300px;
+        line-height: 1.4;
     }
 }
